@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Latihan jQuery - Kreasi Interaktif</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <p>Latihan jQuery</p>
+  <h1>JQuery Visual</h1>
+</header>
+
+<div class="container">
+
+  <!--HIDE / SHO -->
+  <div class="card">
+    <div class="card-label">01 — jQuery Method</div>
+    <h2>Hide / Show</h2>
+    <div class="card-body">
+      <div class="controls">
+        <button class="btn btn-orange" id="btnHide">Hide</button>
+        <button class="btn btn-cyan"   id="btnShow">Show</button>
+        <button class="btn btn-purple" id="btnToggle">Toggle</button>
+      </div>
+      <div class="demo-area">
+        <div class="box-hs" id="hsBox">Aku bisa disembunyikan!</div>
+      </div>
+    </div>
+    <p class="status" id="hsStatus">Status: <span>visible</span></p>
+  </div>
+
+  <!--FADE-->
+  <div class="card">
+    <div class="card-label">02 — jQuery Method</div>
+    <h2>Fade</h2>
+    <div class="card-body">
+      <div class="controls">
+        <button class="btn btn-cyan"   id="btnFadeIn">fadeIn</button>
+        <button class="btn btn-orange" id="btnFadeOut">fadeOut</button>
+        <button class="btn btn-purple" id="btnFadeToggle">fadeToggle</button>
+        <button class="btn btn-green"  id="btnFadeToHalf">fadeTo 50%</button>
+        <button class="btn btn-green"  id="btnFadeToFull">fadeTo 100%</button>
+      </div>
+      <div class="demo-area">
+        <div class="fade-stars" id="fadeTarget">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+        </div>
+      </div>
+    </div>
+    <p class="status">Duration: <span>600ms</span> — coba semua tombol!</p>
+  </div>
+
+  <!--SLIDE-->
+  <div class="card">
+    <div class="card-label">03 — jQuery Method</div>
+    <h2>Slide</h2>
+    <div class="card-body">
+      <div class="controls">
+        <button class="btn btn-purple" id="btnSlideDown">slideDown</button>
+        <button class="btn btn-orange" id="btnSlideUp">slideUp</button>
+        <button class="btn btn-cyan"   id="btnSlideToggle">slideToggle</button>
+      </div>
+      <div class="demo-area" style="flex-direction:column; align-items:stretch;">
+        <div class="panel" id="slidePanel">
+          <strong>Halo dari panel tersembunyi!</strong><br/>
+          Panel ini muncul dengan animasi slide yang smooth menggunakan jQuery.
+          Coba slide up dan down berkali-kali!
+        </div>
+        <p style="color:var(--muted);font-size:0.78rem;text-align:center;margin-top:8px;">
+          panel akan muncul / hilang di sini
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!--ANIMATE-->
+  <div class="card">
+    <div class="card-label">04 — jQuery Method</div>
+    <h2>Animate</h2>
+    <div class="card-body">
+      <div class="controls">
+        <button class="btn btn-green"  id="btnAnimRun">Jalankan Bola</button>
+        <button class="btn btn-orange" id="btnAnimReset">Reset</button>
+      </div>
+      <div class="demo-area" style="padding: 10px;">
+        <div class="animate-track">
+          <div class="ball" id="animBall"></div>
+        </div>
+      </div>
+    </div>
+    <p class="status">Menganimasikan <span>left, opacity, width, height</span> sekaligus</p>
+  </div>
+
+  <!--STOP-->
+  <div class="card">
+    <div class="card-label">05 — jQuery Method</div>
+    <h2>Stop</h2>
+    <div class="card-body">
+      <div class="controls">
+        <button class="btn btn-purple" id="btnStopStart">Mulai Animasi</button>
+        <button class="btn btn-red"    id="btnStop">stop()</button>
+        <button class="btn btn-cyan"   id="btnStopFinish">stop(true,true)</button>
+      </div>
+      <div class="demo-area" style="overflow:hidden;">
+        <div id="stopBox"></div>
+      </div>
+    </div>
+    <p class="status">Klik <span>stop()</span> saat animasi berjalan untuk menghentikannya</p>
+  </div>
+
+  <!--CALLBACK-->
+  <div class="card">
+    <div class="card-label">06 — jQuery Method</div>
+    <h2>Callback</h2>
+    <div class="card-body">
+      <div class="controls">
+        <button class="btn btn-cyan" id="btnCallback">Jalankan</button>
+      </div>
+      <div class="demo-area" style="flex-direction: column; gap: 16px;">
+        <div id="callbackBox"></div>
+        <div id="callbackMsg">Callback dipanggil!</div>
+      </div>
+    </div>
+    <p class="status">Pesan muncul <span>setelah animasi selesai</span> via callback function</p>
+  </div>
+
+  <!--CHAINING-->
+  <div class="card">
+    <div class="card-label">07 — jQuery Method</div>
+    <h2>Chaining</h2>
+    <div class="card-body">
+      <div class="controls">
+        <button class="btn btn-green" id="btnChain">Jalankan Chain</button>
+        <button class="btn btn-orange" id="btnChainReset">Reset</button>
+      </div>
+      <div class="demo-area">
+        <div id="chainBox"></div>
+      </div>
+    </div>
+    <p class="status">
+      Urutan: <span>slideUp -> slideDown -> fadeTo(0.3) -> fadeTo(1) -> animate(rotate/size)</span>
+    </p>
+  </div>
+
+</div>
+
+<!-- TOAST -->
+<div id="toast">⚡ Animasi selesai!</div>
+
+<script>
+$(function () {
+
+  /*toast notification*/
+  function showToast(msg) {
+    $('#toast').text(msg).fadeIn(300).delay(1800).fadeOut(400);
+  }
+
+  /*HIDE / SHOW */
+  $('#btnHide').click(function () {
+    $('#hsBox').hide('slow');
+    $('#hsStatus span').text('hidden');
+  });
+
+  $('#btnShow').click(function () {
+    $('#hsBox').show('slow');
+    $('#hsStatus span').text('visible');
+  });
+
+  $('#btnToggle').click(function () {
+    $('#hsBox').toggle(500, function () {
+      var state = $(this).is(':visible') ? 'visible' : 'hidden';
+      $('#hsStatus span').text(state);
+    });
+  });
+
+
+  /*FADE*/
+  $('#btnFadeIn').click(function () {
+    $('#fadeTarget').fadeIn(600);
+  });
+
+  $('#btnFadeOut').click(function () {
+    $('#fadeTarget').fadeOut(600);
+  });
+
+  $('#btnFadeToggle').click(function () {
+    $('#fadeTarget').fadeToggle(600);
+  });
+
+  $('#btnFadeToHalf').click(function () {
+    $('#fadeTarget').fadeTo(600, 0.5, function () {
+      showToast('fadeTo selesai — opacity 50%');
+    });
+  });
+
+  $('#btnFadeToFull').click(function () {
+    $('#fadeTarget').fadeTo(600, 1, function () {
+      showToast('fadeTo selesai — opacity 100%');
+    });
+  });
+
+
+  /*SLIDE*/
+  $('#btnSlideDown').click(function () {
+    $('#slidePanel').slideDown(500);
+  });
+
+  $('#btnSlideUp').click(function () {
+    $('#slidePanel').slideUp(500);
+  });
+
+  $('#btnSlideToggle').click(function () {
+    $('#slidePanel').slideToggle(500);
+  });
+
+
+  /*ANIMATE*/
+  $('#btnAnimRun').click(function () {
+    var trackW = $('.animate-track').width() - 60;
+    $('#animBall')
+      .stop(true)
+      .css({ left: 0, opacity: 1, width: 60, height: 60 })
+      .animate({
+        left: trackW,
+        opacity: 0.6,
+        width: 80,
+        height: 80
+      }, {
+        duration: 1200,
+        easing: 'swing',
+        complete: function () {
+          showToast('Bola sampai tujuan!');
+        }
+      });
+  });
+
+  $('#btnAnimReset').click(function () {
+    $('#animBall').stop(true, true).css({ left: 0, opacity: 1, width: 60, height: 60 });
+  });
+
+
+  /*STOP*/
+  function loopStopAnim() {
+    $('#stopBox')
+      .animate({ width: '150px', height: '150px', opacity: 0.4, borderRadius: '50%' }, 900)
+      .animate({ width: '70px',  height: '70px',  opacity: 1,   borderRadius: '12px' }, 900, loopStopAnim);
+  }
+
+  $('#btnStopStart').click(function () {
+    $('#stopBox').stop(true, true)
+      .css({ width: '70px', height: '70px', opacity: 1, borderRadius: '12px' });
+    loopStopAnim();
+  });
+
+  // ini berhenti di posisi sekarang
+  $('#btnStop').click(function () {
+    $('#stopBox').stop();
+    showToast('stop() — animasi dihentikan di posisi saat ini');
+  });
+
+  // ini langsung lompat ke akhir antrian
+  $('#btnStopFinish').click(function () {
+    $('#stopBox').stop(true, true);
+    showToast('stop(true,true) — langsung ke frame akhir');
+  });
+
+
+  /*CALLBACK*/
+  $('#btnCallback').click(function () {
+    $('#callbackMsg').hide();
+    $('#callbackBox')
+      .stop(true, true)
+      .css({ opacity: 1, width: 80, height: 80, borderRadius: '50%' })
+      .animate({ opacity: 0, width: 20, height: 20 }, 600, function () {
+        //ini adalah CALLBACK, pokoknya jalan kalo animate selesai
+        $(this).animate({ opacity: 1, width: 80, height: 80 }, 400, function () {
+          $('#callbackMsg').fadeIn(400);
+          showToast('Callback berhasil dipanggil!');
+        });
+      });
+  });
+
+
+  /*CHAINING*/
+  $('#btnChain').click(function () {
+    $('#chainBox')
+      .stop(true, true)
+      .css({ opacity: 1, width: 80, height: 80, borderRadius: '12px' })
+      // chain 1: slideUp
+      .slideUp(400)
+      // chain 2: slideDown
+      .slideDown(400)
+      // chain 3: fadeTo
+      .fadeTo(400, 0.2)
+      // chain 4: fadeTo balik
+      .fadeTo(400, 1)
+      // chain 5: animate size + borderRadius
+      .animate({ width: 140, height: 140, borderRadius: '70px' }, 500)
+      .animate({ width: 80,  height: 80,  borderRadius: '12px' }, 500, function () {
+        showToast('Semua chain selesai! ⛓');
+      });
+  });
+
+  $('#btnChainReset').click(function () {
+    $('#chainBox').stop(true, true)
+      .css({ display: 'block', opacity: 1, width: 80, height: 80, borderRadius: '12px' });
+  });
+
+});
+</script>
+</body>
+</html>
